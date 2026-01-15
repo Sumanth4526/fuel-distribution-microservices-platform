@@ -1,0 +1,16 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: dealer-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/dealer_db
+    username: root
+    password: user
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
