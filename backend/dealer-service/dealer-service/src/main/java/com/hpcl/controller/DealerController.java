@@ -23,21 +23,20 @@ public class DealerController {
     private final DealerService dealerService;
 
     @PostMapping
-   public Dealer createDealer(@RequestHeader("X-ROLE") String role,@RequestBody Dealer dealer) {
-    	if(!role.equals("ADMIN")) {
-    		throw new RuntimeException("Access Denied");
-    	}
-	   return dealerService.createDealer(dealer);
-   }
-    
+    public Dealer createDealer(@RequestHeader("X-ROLE") String role, @RequestBody Dealer dealer) {
+        if (!role.equals("ADMIN")) {
+            throw new RuntimeException("Access Denied");
+        }
+        return dealerService.createDealer(dealer);
+    }
+
     @GetMapping
     public List<Dealer> getAllDealers(@RequestHeader("X-ROLE") String role) {
-    	if(!role.equals("ADMIN")) {
-    		throw new RuntimeException("Access Denied");
-    	}
-    	return dealerService.getAllDealers();
+        if (!role.equals("ADMIN")) {
+            throw new RuntimeException("Access Denied");
+        }
+        return dealerService.getAllDealers();
     }
-    
 
     @GetMapping("/{id}")
     public Dealer getDealer(@PathVariable Long id) {
